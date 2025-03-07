@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:UI"
+    xmlns:pages="clr-namespace:UI.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="UI">
 
@@ -11,5 +12,19 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+        Title="Crear"
+        ContentTemplate="{DataTemplate pages:CrearPersona}"
+        Route="CreatePage"/>
+
+    <ShellContent
+        Title="Editar"
+        ContentTemplate="{DataTemplate pages:EditarPersona}"
+        Route="EditarPage"></ShellContent>
+    <ShellContent
+        Title="Detalles"
+        ContentTemplate="{DataTemplate pages:DetallesPersona}"
+        Route="DetallesPage"></ShellContent>
 
 </Shell>

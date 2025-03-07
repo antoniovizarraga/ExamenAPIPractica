@@ -17,7 +17,7 @@ namespace DTO
                 List<Persona> listado = new List<Persona>();
 
                 ApiResponse res = new ApiResponse();
-                Uri miUri = new Uri($"https://localhost:7272/api/miapi");
+                Uri miUri = new Uri($"http://localhost:5287/api/miapi");
                 HttpClient mihttpClient = new HttpClient();
 
                 try
@@ -50,7 +50,7 @@ namespace DTO
                 Persona obj = new Persona();
 
                 ApiResponse res = new ApiResponse();
-                Uri miUri = new Uri($"https://localhost:7272/api/miapi/{id}");
+                Uri miUri = new Uri($"http://localhost:5287/api/miapi/{id}");
                 HttpClient mihttpClient = new HttpClient();
 
                 try
@@ -77,7 +77,7 @@ namespace DTO
             }
             public static async Task<bool> InsertarObjMAUI(Persona obj)
             {
-                Uri miUri = new Uri($"https://localhost:7272/api/miapi");
+                Uri miUri = new Uri($"http://localhost:5287/api/miapi");
                 HttpClient miHttpClient = new HttpClient();
                 bool res;
                 try
@@ -101,7 +101,7 @@ namespace DTO
 
             public static async Task<bool> ActualizarObj(Persona obj)
             {
-                Uri miUri = new Uri($"https://localhost:7272/api/miapi/{obj.Id}");
+                Uri miUri = new Uri($"http://localhost:5287/api/miapi/{obj.Id}");
                 HttpClient miHttpClient = new HttpClient();
                 bool res;
                 try
@@ -124,7 +124,7 @@ namespace DTO
 
             public static async Task<bool> EliminarObj(int id)
             {
-                Uri miUri = new Uri($"https://localhost:7272/api/miapi/{id}");
+                Uri miUri = new Uri($"http://localhost:5287/api/miapi/{id}");
                 HttpClient miHttpClient = new HttpClient();
                 bool res;
                 try

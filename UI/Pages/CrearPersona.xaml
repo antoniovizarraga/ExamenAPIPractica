@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.Pages.CrearPersona"
+             xmlns:vm="clr-namespace:UI.ViewModels"
+             Title="CrearPersona">
+
+    <ContentPage.BindingContext>
+        <vm:CrearPersonaVM></vm:CrearPersonaVM>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Nombre: "/>
+            <Entry Placeholder="Indique el nombre" Text="{Binding Nombre}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Apellidos: "/>
+            <Entry Placeholder="Indique los apellidos" Text="{Binding Apellidos}"/>
+        </HorizontalStackLayout>
+        <Button Text="Crear" Command="{Binding crearPersonaCommand}" VerticalOptions="Center"/>
+        <Button Command="{Binding volver}" Text="Volver" HorizontalOptions="End"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UI.Pages.EditarPersona"
+             Title="EditarPersona"
+             xmlns:vm="clr-namespace:UI.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:EditarPersonaVM />
+    </ContentPage.BindingContext>
+    
+    
+    
+    <VerticalStackLayout>
+        <Label Text="Editar Persona" VerticalOptions="Center" FontSize="Large"/>
+        <HorizontalStackLayout>
+            <Label Text="Id: "/>
+            <Entry Text="{Binding PersonaEditar.Id}" IsEnabled="False"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Nombre: "/>
+            <Entry Placeholder="Indique el nombre" Text="{Binding PersonaEditar.Nombre}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout VerticalOptions="Center">
+            <Label Text="Apellidos: "/>
+            <Entry Placeholder="Indique los apellidos" Text="{Binding PersonaEditar.Apellidos}"/>
+        </HorizontalStackLayout>
+        <Button Text="Editar" Command="{Binding editarPersonaCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
