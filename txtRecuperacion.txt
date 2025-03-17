@@ -1,0 +1,39 @@
+ENT:
+	ClsCaballo
+	- int id
+	- string Nombre
+	- ClsRaza Raza
+
+	ClsRaza
+	- int id
+	- string Nombre
+
+
+
+DAL:
+
+	ListadoCaballos:
+	- List<ClsCaballo> listadoCaballosDAL
+
+	ListadoRazas:
+	- List<ClsRaza> listadoRazasDAL
+
+	ManejadoraDAL:
+	- List<ClsCaballo> listadoCaballosBL	
+
+	
+
+
+UI:
+	ViewModel:
+	ListadoVM
+	- List<CabaloRazasMDL> {get;}
+	- DelegateCommand commandBtn
+
+	
+	MDL:
+	CaballoRazasMDL
+	- ClsCaballo caballo {get; }
+	- List<ClsRaza> listadoRazas {get; }
+	- ClsRaza razaSeleccionada {get; set; }
+	
