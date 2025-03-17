@@ -27,7 +27,15 @@ DAL:
 UI:
 	ViewModel:
 	ListadoVM
-	- List<CabaloRazasMDL> {get;}
+	- List<CaballoRazasMDL> listadoCaballos {get;}
+
+
+	// Esto lo hacemos sólo para molestar a la API una vez al hacer un foreach, y no un millón de veces
+	- List<ClsCaballos> caballos; {get; }
+	- List<ClsRazas> razas; {get; }
+
+	// Fin listados de API
+
 	- DelegateCommand commandBtn {get; }
 
 	
