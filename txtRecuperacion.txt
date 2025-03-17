@@ -28,7 +28,7 @@ UI:
 	ViewModel:
 	ListadoVM
 	- List<CabaloRazasMDL> {get;}
-	- DelegateCommand commandBtn
+	- DelegateCommand commandBtn {get; }
 
 	
 	MDL:
