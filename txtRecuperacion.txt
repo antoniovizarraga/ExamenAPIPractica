@@ -1,25 +1,48 @@
 ENT:
 	ClsCaballo
-	- int id
-	- string Nombre
-	- ClsRaza Raza
+	- int id {get;}
+	// Si nos ceñimosal ejercicio, estos set no harían falta
+	- string Nombre {get; set;}
+	- int idRaza {get; set; } ! NO SE PUEDEN METER OTRAS ENTIDADES EN UNA CLASE
+
+	+ ClsCaballo()
+	+ ClsCaballo(int id, string nombre, int idRaza)
 
 	ClsRaza
-	- int id
-	- string Nombre
+	- int id {get;}
+	- string Nombre {get; set;}
+	+ ClsRaza()
+	+ ClsRaza(int id, string nombre)
 
 
 
 DAL:
 
-	ListadoCaballos:
-	- List<ClsCaballo> listadoCaballosDAL
+	ListadoCaballosDAL:
+	// También se podría crear una propiedad pública del listado y hacer el método GetListado privado. Para luego ejecutar dicho método en el get de la propiedad del listado.
+	// Conviene saber cuál de las dos situaciones es mejor en cada caso
+	- static List<ClsCaballo> listadoCaballosDAL
+	+ static List<ClsCaballo> GetListadoCaballosDAL returns List<ClsCaballo>
+
+	+ static bool ActualizarCaballo(int idCaballo, int idRaza)
 
 	ListadoRazas:
-	- List<ClsRaza> listadoRazasDAL
+	// También se podría crear una propiedad pública del listado y hacer el método GetListado privado. Para luego ejecutar dicho método en el get de la propiedad del listado.
+	// Conviene saber cuál de las dos situaciones es mejor en cada caso
+	- static List<ClsRaza> listadoRazasDAL
+	+ static List<ClsRaza> GetListadoRazasDAL returns List<ClsRaza>
 
-	ManejadoraDAL:
-	- List<ClsCaballo> listadoCaballosBL	
+
+BL:
+	
+	ListadoCaballosBL:
+	+ static List<ClsCaballo> GetListadoCaballosBL returns ListadoCaballosDAL.GetLListadoCaballosDAL()
+
+	+ static bool ActualizarCaballo(int idCaballo, int idRaza) // Aquí llamaríamos al método de la DAL y devolverá el boolean en base a eso
+
+	ListadoRazas:
+	- static List<ClsRaza> listadoRazasBL
+	+ static List<ClsRaza> GetListadoRazasBL returns List<ClsRaza>
 
 	
 
@@ -27,7 +50,7 @@ DAL:
 UI:
 	ViewModel:
 	ListadoVM
-	- List<CaballoRazasMDL> listadoCaballos {get;}
+	- ObservableCollection<CaballoRazasMDL> listadoCaballosConRazas {get;}
 
 
 	// Esto lo hacemos sólo para molestar a la API una vez al hacer un foreach, y no un millón de veces
@@ -44,4 +67,7 @@ UI:
 	- ClsCaballo caballo {get; }
 	- List<ClsRaza> listadoRazas {get; }
 	- ClsRaza razaSeleccionada {get; set; }
+
+
+	+ CaballoRazasMDL(ClsCaballo caballo, List<ClsRaza> listadoRazas, ClsRaza razaSeleccionada) // Rellenamos el listado de Razas con el listado recibido como parámetro
 	
